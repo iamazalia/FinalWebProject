@@ -1,0 +1,139 @@
+﻿@model IEnumerable<finalwebdev.Models.user>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<head>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: #3498db;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .navbar-inverse .navbar-brand,
+        .navbar-inverse .navbar-nav > li > a {
+            color: #fff;
+        }
+
+            .navbar-inverse .navbar-brand:hover,
+            .navbar-inverse .navbar-nav > li > a:hover,
+            .navbar-inverse .navbar-brand:focus,
+            .navbar-inverse .navbar-nav > li > a:focus {
+                color: #ecf0f1;
+            }
+
+        .navbar-inverse .navbar-toggle {
+            border-color: #ecf0f1;
+        }
+
+            .navbar-inverse .navbar-toggle:hover,
+            .navbar-inverse .navbar-toggle:focus {
+                background-color: #ecf0f1;
+            }
+
+        .container.body-content {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table.table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            table.table th,
+            table.table td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            table.table th {
+                background-color: #3498db;
+                color: #fff;
+            }
+
+            table.table tbody tr:hover {
+                background-color: #ecf0f1;
+            }
+
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #777;
+        }
+    </style>
+    <p>
+        @Html.ActionLink("Add new user", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.user_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.user_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.user_id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</head>
